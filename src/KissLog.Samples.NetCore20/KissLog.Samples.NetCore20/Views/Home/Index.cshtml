@@ -1,0 +1,23 @@
+﻿@model KissLog.Samples.NetCore20.Models.IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4">Welcome</h1>
+</div>
+
+<div>
+    <p>This application is using KissLog to save the logs on:</p>
+
+    <ol>
+        <li class="mb-3">
+            KissLog.net: <br />
+            <a href="@Model.KissLogRequestLogsUrl" target="_blank">@Model.KissLogRequestLogsUrl</a>
+        </li>
+        <li class="mb-3">
+            Local text files: <br />
+            @Model.LocalTextFilesPath
+        </li>
+    </ol>
+</div>
