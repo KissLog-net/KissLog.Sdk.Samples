@@ -35,7 +35,7 @@ namespace KissLog.Samples.NetCore30.Controllers
             return View(viewModel);
         }
 
-        public IActionResult TriggerError()
+        public IActionResult TriggerException()
         {
             Random random = new Random();
             int productId = random.Next(1, 10000);
