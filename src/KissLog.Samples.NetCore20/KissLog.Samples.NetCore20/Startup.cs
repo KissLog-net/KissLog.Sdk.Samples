@@ -34,13 +34,6 @@ namespace KissLog.Samples.NetCore20
                 return Logger.Factory.Get();
             });
 
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
-
             services.AddSession();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -61,8 +54,6 @@ namespace KissLog.Samples.NetCore20
             app.UseStaticFiles();
             
             app.UseSession();
-
-            app.UseCookiePolicy();
 
             app.UseKissLogMiddleware(options => {
                 ConfigureKissLog(options);
