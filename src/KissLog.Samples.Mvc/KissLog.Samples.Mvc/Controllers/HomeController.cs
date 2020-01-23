@@ -1,4 +1,5 @@
-﻿using KissLog.Samples.Mvc.Exceptions;
+﻿using KissLog.Samples.Mvc.ActionFilters;
+using KissLog.Samples.Mvc.Exceptions;
 using KissLog.Samples.Mvc.Models;
 using System;
 using System.Configuration;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace KissLog.Samples.Mvc.Controllers
 {
+    [TrackExecutionTime]
     public class HomeController : Controller
     {
         private readonly ILogger _logger;
@@ -19,9 +21,11 @@ namespace KissLog.Samples.Mvc.Controllers
         {
             _logger.Debug("Hello world from AspNet.Mvc!");
 
+            string applicationId = ConfigurationManager.AppSettings["KissLog.ApplicationId"];
+
             var viewModel = new IndexViewModel
             {
-                KissLogRequestLogsUrl = $"https://kisslog.net/RequestLogs/{ConfigurationManager.AppSettings["KissLog.ApplicationId"]}/kisslog-sample",
+                KissLogRequestLogsUrl = $"https://kisslog.net/RequestLogs/{applicationId}/kisslog-sample",
                 LocalTextFilesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs")
             };
 
