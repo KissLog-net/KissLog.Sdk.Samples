@@ -1,14 +1,18 @@
-﻿using System;
+﻿using KissLog.Samples.WebApi.ActionFilters;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace KissLog.Samples.WebApi.Controllers
 {
+    [TrackExecutionTime]
     public class ValuesController : ApiController
     {
+        private readonly ILogger _logger;
+        public ValuesController()
+        {
+            _logger = Logger.Factory.Get();
+        }
+
         // GET api/values
         public IEnumerable<string> Get()
         {

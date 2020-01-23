@@ -1,4 +1,5 @@
-﻿using KissLog.Samples.WebApi.Exceptions;
+﻿using KissLog.Samples.WebApi.ActionFilters;
+using KissLog.Samples.WebApi.Exceptions;
 using KissLog.Samples.WebApi.Models;
 using System;
 using System.Configuration;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace KissLog.Samples.WebApi.Controllers
 {
+    [TrackExecutionTime]
     public class HomeController : Controller
     {
         private readonly ILogger _logger;
@@ -17,7 +19,7 @@ namespace KissLog.Samples.WebApi.Controllers
 
         public ActionResult Index()
         {
-            _logger.Debug("Hello world from AspNet.WebApi!");
+            _logger.Info("Hello world from AspNet.WebApi!");
 
             string applicationId = ConfigurationManager.AppSettings["KissLog.ApplicationId"];
 
