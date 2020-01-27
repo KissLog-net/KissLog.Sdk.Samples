@@ -17,6 +17,11 @@ namespace KissLog.Samples.Mvc
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+		// If at application startup you encounter the error: "Could not find file '[...]\roslyn\csc.exe'
+		// please follow these steps: Clean Solution. Restore NuGet packages. Rebuild
+		// More details can be found here:
+		// https://code-adda.com/2018/07/how-to-solve-could-not-find-a-part-of-the-path-bin-roslyn-csc-exe-error/
+		
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
