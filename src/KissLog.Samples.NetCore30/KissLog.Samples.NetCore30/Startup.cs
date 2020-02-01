@@ -68,7 +68,7 @@ namespace KissLog.Samples.NetCore30
 
         private void ConfigureKissLog(IOptionsBuilder options)
         {
-            // cloud listener
+            // Register KissLog.net cloud listener
             options.Listeners.Add(new KissLogApiListener(new KissLog.Apis.v1.Auth.Application(
                 Configuration["KissLog.OrganizationId"],
                 Configuration["KissLog.ApplicationId"])
@@ -77,12 +77,13 @@ namespace KissLog.Samples.NetCore30
                 ApiUrl = Configuration["KissLog.ApiUrl"]
             });
 
-            // text listener
+            // Register local text files listener
             options.Listeners.Add(new LocalTextFileListener(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs"))
             {
-                FlushTrigger = FlushTrigger.OnMessage // OnMessage | OnFlush
+                FlushTrigger = FlushTrigger.OnMessage
             });
 
+            // optional KissLog configuration
             options.Options
                 .ShouldLogResponseBody((ILogListener listener, FlushLogArgs args, bool defaultValue) =>
                 {

@@ -81,10 +81,10 @@ namespace KissLog.Samples.NetCore20
             // Register local text files listener
             options.Listeners.Add(new LocalTextFileListener(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs"))
             {
-                FlushTrigger = FlushTrigger.OnMessage // OnMessage | OnFlush
+                FlushTrigger = FlushTrigger.OnMessage
             });
 
-            // Additional KissLog configuration
+            // optional KissLog configuration
             options.Options
                 .ShouldLogResponseBody((ILogListener listener, FlushLogArgs args, bool defaultValue) =>
                 {

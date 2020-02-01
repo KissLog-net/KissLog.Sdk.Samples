@@ -76,7 +76,7 @@ namespace KissLog.Samples.ConsoleApp
                 FlushTrigger = FlushTrigger.OnMessage // OnMessage | OnFlush
             });
 
-            // Additional KissLog configuration
+            // optional KissLog configuration
             KissLogConfiguration.Options
                 .AppendExceptionDetails((Exception ex) =>
                 {
