@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="KissLog.AspNetCore" Version="2.5.5" />
+    <PackageReference Include="KissLog.AspNetCore" Version="2.5.6" />
   </ItemGroup>
 
 
