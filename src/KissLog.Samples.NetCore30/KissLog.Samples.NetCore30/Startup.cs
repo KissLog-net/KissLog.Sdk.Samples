@@ -1,6 +1,6 @@
-using KissLog;
-using KissLog.Apis.v1.Listeners;
 using KissLog.AspNetCore;
+using KissLog.CloudListeners.Auth;
+using KissLog.CloudListeners.RequestLogsListener;
 using KissLog.FlushArgs;
 using KissLog.Listeners;
 using KissLog.Samples.NetCore30.Exceptions;
@@ -69,7 +69,7 @@ namespace KissLog.Samples.NetCore30
         private void ConfigureKissLog(IOptionsBuilder options)
         {
             // Register KissLog.net cloud listener
-            options.Listeners.Add(new KissLogApiListener(new KissLog.Apis.v1.Auth.Application(
+            options.Listeners.Add(new RequestLogsApiListener(new Application(
                 Configuration["KissLog.OrganizationId"],
                 Configuration["KissLog.ApplicationId"])
             )

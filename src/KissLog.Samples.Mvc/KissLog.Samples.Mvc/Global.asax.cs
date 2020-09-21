@@ -1,6 +1,7 @@
-﻿using KissLog.Apis.v1.Listeners;
-using KissLog.AspNet.Mvc;
+﻿using KissLog.AspNet.Mvc;
 using KissLog.AspNet.Web;
+using KissLog.CloudListeners.Auth;
+using KissLog.CloudListeners.RequestLogsListener;
 using KissLog.FlushArgs;
 using KissLog.Listeners;
 using KissLog.Samples.Mvc.Exceptions;
@@ -48,7 +49,7 @@ namespace KissLog.Samples.Mvc
         private void ConfigureKissLog()
         {
             // Register KissLog.net cloud listener
-            KissLogConfiguration.Listeners.Add(new KissLogApiListener(new KissLog.Apis.v1.Auth.Application(
+            KissLogConfiguration.Listeners.Add(new RequestLogsApiListener(new Application(
                 ConfigurationManager.AppSettings["KissLog.OrganizationId"],
                 ConfigurationManager.AppSettings["KissLog.ApplicationId"])
             )

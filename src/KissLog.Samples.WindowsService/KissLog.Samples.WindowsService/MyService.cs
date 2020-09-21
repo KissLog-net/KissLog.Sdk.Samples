@@ -1,4 +1,5 @@
-﻿using KissLog.Apis.v1.Listeners;
+﻿using KissLog.CloudListeners.Auth;
+using KissLog.CloudListeners.RequestLogsListener;
 using KissLog.Listeners;
 using System;
 using System.Configuration;
@@ -77,7 +78,7 @@ namespace KissLog.Samples.WindowsService
         private static void ConfigureKissLog()
         {
             // Register KissLog.net cloud listener
-            KissLogConfiguration.Listeners.Add(new KissLogApiListener(new KissLog.Apis.v1.Auth.Application(
+            KissLogConfiguration.Listeners.Add(new RequestLogsApiListener(new Application(
                 ConfigurationManager.AppSettings["KissLog.OrganizationId"],
                 ConfigurationManager.AppSettings["KissLog.ApplicationId"])
             )

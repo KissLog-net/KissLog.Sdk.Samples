@@ -378,7 +378,7 @@ namespace KissLog.Samples.WebApi.Areas.HelpPage
             try
             {
                 object parsedJson = JsonConvert.DeserializeObject(str);
-                return JsonConvert.SerializeObject(parsedJson, Formatting.Indented);
+                return JsonConvert.SerializeObject(parsedJson, Newtonsoft.Json.Formatting.Indented);
             }
             catch
             {
