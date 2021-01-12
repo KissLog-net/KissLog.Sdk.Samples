@@ -1,0 +1,26 @@
+﻿@model NLog_AspNet_WebApi.Models.IndexViewModel
+@{
+    ViewBag.Title = "NLog";
+}
+
+<div>
+    <p>This ASP.NET WebApi application is using NLog to save the logs on:</p>
+
+    <ol>
+        <li>
+            Local text files: <br />
+            @Model.LocalTextFilesPath
+        </li>
+        <li>
+            KissLog.net: <br />
+            <a href="@Model.KissLogRequestLogsUrl" target="_blank">@Model.KissLogRequestLogsUrl</a>
+        </li>
+    </ol>
+</div>
+
+@section css {
+    <style>
+        .body-content { padding-top: 60px; }
+        ol > li { margin-bottom: 20px; }
+    </style>
+}
