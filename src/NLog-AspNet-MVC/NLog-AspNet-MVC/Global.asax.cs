@@ -1,11 +1,11 @@
 ﻿using KissLog;
+using KissLog.AspNet.Mvc;
 using KissLog.AspNet.Web;
 using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
 using System.Configuration;
 using System.Diagnostics;
 using System.Web.Mvc;
-using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace NLog_AspNet_MVC
@@ -17,7 +17,9 @@ namespace NLog_AspNet_MVC
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // add KissLog exception filter
+            GlobalFilters.Filters.Add(new KissLogWebMvcExceptionFilterAttribute());
 
             ConfigureKissLog();
         }

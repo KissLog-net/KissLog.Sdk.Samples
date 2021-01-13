@@ -174,7 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionFilters\TrackExecutionTimeAttribute.cs" />
-    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="AppHelpers.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -186,17 +186,61 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\HomeController.cs.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\code-prettify\src\lang-apollo.js" />
+    <Content Include="Content\code-prettify\src\lang-basic.js" />
+    <Content Include="Content\code-prettify\src\lang-clj.js" />
+    <Content Include="Content\code-prettify\src\lang-css.js" />
+    <Content Include="Content\code-prettify\src\lang-dart.js" />
+    <Content Include="Content\code-prettify\src\lang-erlang.js" />
+    <Content Include="Content\code-prettify\src\lang-go.js" />
+    <Content Include="Content\code-prettify\src\lang-hs.js" />
+    <Content Include="Content\code-prettify\src\lang-lasso.js" />
+    <Content Include="Content\code-prettify\src\lang-lisp.js" />
+    <Content Include="Content\code-prettify\src\lang-llvm.js" />
+    <Content Include="Content\code-prettify\src\lang-logtalk.js" />
+    <Content Include="Content\code-prettify\src\lang-lua.js" />
+    <Content Include="Content\code-prettify\src\lang-matlab.js" />
+    <Content Include="Content\code-prettify\src\lang-ml.js" />
+    <Content Include="Content\code-prettify\src\lang-mumps.js" />
+    <Content Include="Content\code-prettify\src\lang-n.js" />
+    <Content Include="Content\code-prettify\src\lang-pascal.js" />
+    <Content Include="Content\code-prettify\src\lang-proto.js" />
+    <Content Include="Content\code-prettify\src\lang-r.js" />
+    <Content Include="Content\code-prettify\src\lang-rd.js" />
+    <Content Include="Content\code-prettify\src\lang-rust.js" />
+    <Content Include="Content\code-prettify\src\lang-scala.js" />
+    <Content Include="Content\code-prettify\src\lang-sql.js" />
+    <Content Include="Content\code-prettify\src\lang-swift.js" />
+    <Content Include="Content\code-prettify\src\lang-tcl.js" />
+    <Content Include="Content\code-prettify\src\lang-tex.js" />
+    <Content Include="Content\code-prettify\src\lang-vb.js" />
+    <Content Include="Content\code-prettify\src\lang-vhdl.js" />
+    <Content Include="Content\code-prettify\src\lang-wiki.js" />
+    <Content Include="Content\code-prettify\src\lang-xq.js" />
+    <Content Include="Content\code-prettify\src\lang-yaml.js" />
+    <Content Include="Content\code-prettify\src\prettify.css" />
+    <Content Include="Content\code-prettify\src\prettify.js" />
+    <Content Include="Content\code-prettify\src\run_prettify.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\App.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\code-prettify\CHANGES.md" />
+    <Content Include="Content\code-prettify\COPYING" />
+    <Content Include="Content\code-prettify\package.json" />
+    <Content Include="Content\code-prettify\README.md" />
+    <Content Include="App_Data\NLog.config.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -223,9 +267,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

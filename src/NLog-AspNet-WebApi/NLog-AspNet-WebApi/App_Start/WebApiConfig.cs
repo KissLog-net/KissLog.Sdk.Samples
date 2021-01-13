@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using KissLog.AspNet.WebApi;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 
 namespace NLog_AspNet_WebApi
 {
@@ -9,7 +8,11 @@ namespace NLog_AspNet_WebApi
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
+            // add KissLog Exception logger
+            config.Services.Replace(typeof(IExceptionLogger), new KissLogExceptionLogger());
+
+            // add KissLog exception filter
+            config.Filters.Add(new KissLogWebApiExceptionFilterAttribute());
 
             // Web API routes
             config.MapHttpAttributeRoutes();

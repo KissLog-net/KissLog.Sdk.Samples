@@ -6,8 +6,8 @@
 <div>
     <p>This ASP.NET MVC application is using NLog to save the logs on:</p>
 
-    <ol>
-        <li class="mb-3">
+    <ol class="list">
+        <li>
             Local text files: <br />
             @Model.LocalTextFilesPath
         </li>
@@ -16,11 +16,22 @@
             <a href="@Model.KissLogRequestLogsUrl" target="_blank">@Model.KissLogRequestLogsUrl</a>
         </li>
     </ol>
+    
+    <div>
+        <div>HomeController.cs</div>
+        <pre class="prettyprint linenums">@AppHelpers.ReadAppDataFile("HomeController.cs.txt")</pre>
+    </div>
+    
+    <div>
+        <div>NLog.config</div>
+        <pre class="prettyprint linenums">@AppHelpers.ReadAppDataFile("NLog.config.txt")</pre>
+    </div>
 </div>
 
-@section css {
-    <style>
-        .body-content { padding-top: 60px; }
-        ol > li { margin-bottom: 20px; }
-    </style>
+@section scripts {
+    <script>
+        $("pre").each(function () {
+            App.prettyPrint($(this));
+        });
+    </script>
 }
