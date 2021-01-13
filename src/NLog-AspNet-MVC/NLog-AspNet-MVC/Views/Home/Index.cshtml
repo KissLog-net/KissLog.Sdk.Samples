@@ -1,37 +1,123 @@
-﻿@model NLog_AspNet_MVC.Models.IndexViewModel
+﻿@using System.Configuration
+@model NLog_AspNet_MVC.Models.IndexViewModel
 @{
     ViewBag.Title = "NLog";
 }
 
-<div>
-    <p>This ASP.NET MVC application is using NLog to save the logs on:</p>
 
-    <ol class="list">
-        <li>
-            Local text files: <br />
-            @Model.LocalTextFilesPath
-        </li>
-        <li>
-            KissLog.net: <br />
-            <a href="@Model.KissLogRequestLogsUrl" target="_blank">@Model.KissLogRequestLogsUrl</a>
-        </li>
-    </ol>
-    
-    <div>
-        <div>HomeController.cs</div>
-        <pre class="prettyprint linenums">@AppHelpers.ReadAppDataFile("HomeController.cs.txt")</pre>
-    </div>
-    
-    <div>
-        <div>NLog.config</div>
-        <pre class="prettyprint linenums">@AppHelpers.ReadAppDataFile("NLog.config.txt")</pre>
-    </div>
+<p>This ASP.NET MVC application is using NLog to write the logs on:</p>
+
+<ol class="list">
+    <li>
+        Local text files: <br />
+        @Model.LocalTextFilesPath
+    </li>
+    <li>
+        KissLog.net: <br />
+        <a href="@Model.KissLogRequestLogsUrl" target="_blank">@Model.KissLogRequestLogsUrl</a>
+    </li>
+</ol>
+
+<div>
+    <div>HomeController.cs</div>
+    <pre class="prettyprint linenums">@AppHelpers.ReadAppDataFile("InstallInstructions\\AspNetMvc\\HomeController.cs.txt")</pre>
 </div>
+
+<div>
+    <img src="~/Content/NLog-AspNet-MVC.png" class="img-thumbnail" style="max-width: 800px;" />
+</div>
+
+<h2>Install instructions</h2>
+
+<ol class="installInstructions">
+    <li>
+        <div>
+            Install NuGet package <span class="font-weight-semibold">KissLog.AspNet.Mvc</span>
+        </div>
+        <div>
+            <div class="packageManagerConsole codeBlock minWidth">
+                <div>
+                    PM&gt; Install-Package KissLog.AspNet.Mvc
+                </div>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <div>
+            Install NuGet package <span class="font-weight-semibold">KissLog.Adapters.NLog</span>
+        </div>
+        <div>
+            <div class="packageManagerConsole codeBlock minWidth">
+                <div>
+                    PM&gt; Install-Package KissLog.Adapters.NLog
+                </div>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <div>
+            Update <span class="font-weight-semibold">web.config</span>
+        </div>
+        <div>
+            <div class="d-inline-block minWidth">
+                <pre class="prettyprint linenums">
+@AppHelpers.ReadAppDataFile("InstallInstructions\\AspNetMvc\\web.config.txt")
+</pre>
+            </div>
+        </div>
+    </li>
+    
+    <li>
+        <div>
+            Update <span class="font-weight-semibold">NLog.config</span>
+        </div>
+        <div>
+            <div class="d-inline-block minWidth">
+                <pre class="prettyprint linenums">
+@AppHelpers.ReadAppDataFile("InstallInstructions\\AspNetMvc\\NLog.config.txt")
+</pre>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <div>Update <span class="font-weight-semibold">Global.asax</span></div>
+
+        <div>
+            <div class="d-inline-block minWidth">
+                <pre class="prettyprint linenums">
+@AppHelpers.ReadAppDataFile("InstallInstructions\\AspNetMvc\\Global.asax.txt")
+</pre>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <div>Write logs using <span class="font-weight-semibold">NLog.ILogger</span></div>
+
+        <div>
+            <div class="d-inline-block minWidth">
+                <pre class="prettyprint linenums">
+@AppHelpers.ReadAppDataFile("InstallInstructions\\AspNetMvc\\HomeController.cs.txt")
+</pre>
+            </div>
+        </div>
+    </li>
+</ol>
+
 
 @section scripts {
     <script>
-        $("pre").each(function () {
-            App.prettyPrint($(this));
+        var placeholders = {
+            organizationId: "@(ConfigurationManager.AppSettings["KissLog.OrganizationId"])",
+            applicationId: "@(ConfigurationManager.AppSettings["KissLog.ApplicationId"])",
+            kissLogApiUrl: "@(ConfigurationManager.AppSettings["KissLog.ApiUrl"])"
+        };
+
+        $("pre").each(function() {
+            App.prettyPrint($(this), placeholders);
         });
     </script>
 }
