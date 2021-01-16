@@ -1,0 +1,25 @@
+﻿::using KissLog.AspNet.WebApi;
+using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
+
+namespace KissLog_AspNet_WebApi
+{
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            ::config.Services.Replace(typeof(IExceptionLogger), new KissLogExceptionLogger());
+
+            ::config.Filters.Add(new KissLogWebApiExceptionFilterAttribute());
+
+            // Web API routes
+            config.MapHttpAttributeRoutes();
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+        }
+    }
+}
