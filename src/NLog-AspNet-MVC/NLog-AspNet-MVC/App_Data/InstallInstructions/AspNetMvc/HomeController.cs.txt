@@ -13,6 +13,12 @@ namespace NLog_AspNet_MVC.Controllers
         public ActionResult Index()
         {
             ::_logger.Info("Hello world from NLog!");
+            _logger.Trace("Trace message");
+            _logger.Debug("Debug message");
+            _logger.Info("Info message");
+            _logger.Warn("Warning message");
+            _logger.Error("Error message");
+            _logger.Fatal("Fatal message");
 
             return View();
         }
