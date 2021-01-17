@@ -1,13 +1,8 @@
 # .NET Core 3.x + KissLog &#8680; kisslog.net
 
-<table>
-    <tr>
-        <th>HomeController.cs</th>
-        <th>kisslog.net</th>
-    </tr>
-    <tr>
-        <td>
-            <pre>
+**HomeController.cs**
+
+```
 using KissLog;
 
 namespace KissLog_AspNetCore_30.Controllers
@@ -15,8 +10,7 @@ namespace KissLog_AspNetCore_30.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger _logger;
-        public HomeController(
-            ILogger logger)
+        public HomeController(ILogger logger)
         {
             _logger = logger;
         }
@@ -35,8 +29,8 @@ namespace KissLog_AspNetCore_30.Controllers
         }
     }
 }
-</pre>
-        </td>
-        <td>XXX</td>
-    </tr>
-</table>
+```
+
+**kisslog.net**
+
+![Image of Yaktocat](/src/KissLog-AspNetCore-30/KissLog-AspNetCore-30/wwwroot/KissLog-AspNetCore-3x.png)
