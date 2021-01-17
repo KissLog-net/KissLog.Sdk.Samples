@@ -1,11 +1,11 @@
-# .NET Core 3.x + KissLog &#8680; kisslog.net
+# .NET Core 2.x + KissLog &#8680; kisslog.net
 
 **HomeController.cs**
 
 ```csharp
 using KissLog;
 
-namespace KissLog_AspNetCore_30.Controllers
+namespace KissLog_AspNetCore_20.Controllers
 {
     public class HomeController : Controller
     {
@@ -33,4 +33,4 @@ namespace KissLog_AspNetCore_30.Controllers
 
 **kisslog.net**
 
-![kisslog.net](/src/KissLog-AspNetCore-30/KissLog-AspNetCore-30/wwwroot/KissLog-AspNetCore-3x.png)
+![kisslog.net](/src/KissLog-AspNetCore-20/KissLog-AspNetCore-20/wwwroot/KissLog-AspNetCore-2x.png)

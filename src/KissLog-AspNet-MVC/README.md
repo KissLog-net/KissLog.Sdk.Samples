@@ -1,21 +1,21 @@
-# .NET Core 3.x + KissLog &#8680; kisslog.net
+# ASP.NET MVC + KissLog &#8680; kisslog.net
 
 **HomeController.cs**
 
 ```csharp
 using KissLog;
 
-namespace KissLog_AspNetCore_30.Controllers
+namespace KissLog_AspNet_MVC.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger _logger;
-        public HomeController(ILogger logger)
+        public HomeController()
         {
-            _logger = logger;
+            _logger = Logger.Factory.Get();
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
             _logger.Info("Hello world from KissLog!");
             _logger.Trace("Trace message");
@@ -33,4 +33,4 @@ namespace KissLog_AspNetCore_30.Controllers
 
 **kisslog.net**
 
-![kisslog.net](/src/KissLog-AspNetCore-30/KissLog-AspNetCore-30/wwwroot/KissLog-AspNetCore-3x.png)
+![kisslog.net](/src/KissLog-AspNet-MVC/KissLog-AspNet-MVC/Content/KissLog-AspNet-MVC.png)
