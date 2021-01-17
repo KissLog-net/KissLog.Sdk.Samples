@@ -7,7 +7,8 @@
     </tr>
     <tr>
         <td>
-            <pre>using KissLog;
+            <pre>
+using KissLog;
 
 namespace KissLog_AspNetCore_30.Controllers
 {
@@ -22,7 +23,7 @@ namespace KissLog_AspNetCore_30.Controllers
 
         public IActionResult Index()
         {
-            ::_logger.Info("Hello world from KissLog!");
+            _logger.Info("Hello world from KissLog!");
             _logger.Trace("Trace message");
             _logger.Debug("Debug message");
             _logger.Info("Info message");
@@ -33,7 +34,8 @@ namespace KissLog_AspNetCore_30.Controllers
             return View();
         }
     }
-}</pre>
+}
+</pre>
         </td>
         <td>XXX</td>
     </tr>
