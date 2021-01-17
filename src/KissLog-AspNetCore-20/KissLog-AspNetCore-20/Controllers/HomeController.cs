@@ -1,24 +1,28 @@
 ﻿using KissLog;
-using KissLog_AspNet_MVC.ActionFilters;
-using KissLog_AspNet_MVC.Exceptions;
-using KissLog_AspNet_MVC.Models;
+using KissLog_AspNetCore_20.ActionFilters;
+using KissLog_AspNetCore_20.Exceptions;
+using KissLog_AspNetCore_20.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
-using System.Configuration;
 using System.IO;
-using System.Web.Mvc;
 
-namespace KissLog_AspNet_MVC.Controllers
+namespace KissLog_AspNetCore_20.Controllers
 {
-    [TrackExecutionTime]
+    // [TrackExecutionTime]
     public class HomeController : Controller
     {
+        private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
-        public HomeController()
+        public HomeController(
+            IConfiguration configuration,
+            ILogger logger)
         {
-            _logger = Logger.Factory.Get();
+            _configuration = configuration;
+            _logger = logger;
         }
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             _logger.Info("Hello world from KissLog!");
 
@@ -29,18 +33,18 @@ namespace KissLog_AspNet_MVC.Controllers
             _logger.Error("Error message");
             _logger.Critical("Critical message");
 
-            string applicationId = ConfigurationManager.AppSettings["KissLog.ApplicationId"];
+            string applicationId = _configuration["KissLog.ApplicationId"];
 
             var viewModel = new IndexViewModel
             {
-                KissLogRequestLogsUrl = $"https://kisslog.net/RequestLogs/{applicationId}/kisslog-aspnet-mvc",
+                KissLogRequestLogsUrl = $"https://kisslog.net/RequestLogs/{applicationId}/kisslog-aspnetcore-2x",
                 LocalTextFilesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs")
             };
 
             return View(viewModel);
         }
 
-        public ActionResult TriggerException()
+        public IActionResult TriggerException()
         {
             Random random = new Random();
             int productId = random.Next(1, 10000);

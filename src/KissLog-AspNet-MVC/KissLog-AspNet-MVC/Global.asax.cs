@@ -80,11 +80,11 @@ namespace KissLog_AspNet_MVC
 
             // register KissLog.net cloud listener
             KissLogConfiguration.Listeners.Add(new RequestLogsApiListener(new Application(
-                ConfigurationManager.AppSettings["KissLog.OrganizationId"],     // ""
-                ConfigurationManager.AppSettings["KissLog.ApplicationId"])      // ""
+                ConfigurationManager.AppSettings["KissLog.OrganizationId"],
+                ConfigurationManager.AppSettings["KissLog.ApplicationId"]) 
             )
             {
-                ApiUrl = ConfigurationManager.AppSettings["KissLog.ApiUrl"]     // ""
+                ApiUrl = ConfigurationManager.AppSettings["KissLog.ApiUrl"]
             });
 
             // Register local text files listener
