@@ -176,11 +176,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\InstallInstructions\AspNetWebApi\Global.asax.txt" />
-    <Content Include="App_Data\InstallInstructions\AspNetWebApi\NLog.config.txt" />
-    <Content Include="App_Data\InstallInstructions\AspNetWebApi\ValuesController.cs.txt" />
-    <Content Include="App_Data\InstallInstructions\AspNetWebApi\web.config.txt" />
-    <Content Include="App_Data\InstallInstructions\AspNetWebApi\WebApiConfig.cs.txt" />
+    <Content Include="App_Data\InstallInstructions\Global.asax.txt" />
+    <Content Include="App_Data\InstallInstructions\NLog.config.txt" />
+    <Content Include="App_Data\InstallInstructions\ValuesController.cs.txt" />
+    <Content Include="App_Data\InstallInstructions\web.config.txt" />
+    <Content Include="App_Data\InstallInstructions\WebApiConfig.cs.txt" />
     <Content Include="Content\code-prettify\src\prettify.css" />
     <Content Include="Content\code-prettify\src\prettify.js" />
     <Content Include="Content\css\bootstrap.min.css" />
