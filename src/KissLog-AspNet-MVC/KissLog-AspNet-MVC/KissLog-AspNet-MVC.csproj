@@ -130,9 +130,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\InstallInstructions\AspNetMvc\Global.asax.txt" />
-    <Content Include="App_Data\InstallInstructions\AspNetMvc\HomeController.cs.txt" />
-    <Content Include="App_Data\InstallInstructions\AspNetMvc\web.config.txt" />
+    <Content Include="App_Data\InstallInstructions\Global.asax.txt" />
+    <Content Include="App_Data\InstallInstructions\HomeController.cs.txt" />
+    <Content Include="App_Data\InstallInstructions\web.config.txt" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\code-prettify\src\prettify.css" />
     <Content Include="Content\code-prettify\src\prettify.js" />
