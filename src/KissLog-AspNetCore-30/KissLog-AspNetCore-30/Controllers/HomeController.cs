@@ -1,20 +1,22 @@
-﻿using KissLog_AspNetCore_30.Exceptions;
+﻿using KissLog;
+using KissLog_AspNetCore_30.ActionFilters;
+using KissLog_AspNetCore_30.Exceptions;
 using KissLog_AspNetCore_30.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 
 namespace KissLog_AspNetCore_30.Controllers
 {
+    [TrackExecutionTime]
     public class HomeController : Controller
     {
         private readonly IConfiguration _configuration;
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger _logger;
         public HomeController(
             IConfiguration configuration,
-            ILogger<HomeController> logger)
+            ILogger logger)
         {
             _configuration = configuration;
             _logger = logger;
@@ -22,14 +24,14 @@ namespace KissLog_AspNetCore_30.Controllers
 
         public IActionResult Index()
         {
-            _logger.LogInformation("Hello world from KissLog!");
+            _logger.Info("Hello world from KissLog!");
 
-            _logger.LogTrace("Trace message");
-            _logger.LogDebug("Debug message");
-            _logger.LogInformation("Info message");
-            _logger.LogWarning("Warning message");
-            _logger.LogError("Error message");
-            _logger.LogCritical("Critical message");
+            _logger.Trace("Trace message");
+            _logger.Debug("Debug message");
+            _logger.Info("Info message");
+            _logger.Warn("Warning message");
+            _logger.Error("Error message");
+            _logger.Critical("Critical message");
 
             string applicationId = _configuration["KissLog.ApplicationId"];
 

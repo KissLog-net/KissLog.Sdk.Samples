@@ -1,19 +1,19 @@
-﻿::using Microsoft.Extensions.Logging;
+﻿::using KissLog;
 
 namespace KissLog_AspNetCore_30.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        ::private readonly ILogger _logger;
         public HomeController(
-            ILogger<HomeController> logger)
+            ILogger logger)
         {
-            _logger = logger;
+            ::_logger = logger;
         }
 
         public IActionResult Index()
         {
-            ::_logger.Info("Hello world from .NET Core 3.x!");
+            ::_logger.Info("Hello world from KissLog!");
             _logger.Trace("Trace message");
             _logger.Debug("Debug message");
             _logger.Info("Info message");
