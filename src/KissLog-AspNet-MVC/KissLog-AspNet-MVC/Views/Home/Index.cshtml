@@ -1,0 +1,103 @@
+﻿@using System.Configuration
+@model KissLog_AspNet_MVC.Models.IndexViewModel
+@{
+    ViewBag.Title = "Home";
+}
+
+<p>This ASP.NET MVC application is using KissLog to write the logs on:</p>
+
+<ol class="list">
+    <li>
+        Local text files: <br />
+        @Model.LocalTextFilesPath
+    </li>
+    <li>
+        KissLog.net: <br />
+        <a href="@Model.KissLogRequestLogsUrl" target="_blank">@Model.KissLogRequestLogsUrl</a>
+    </li>
+</ol>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div>
+            <div>KissLog + HomeController.cs</div>
+            <pre class="prettyprint linenums">@AppHelpers.ReadAppDataFile("InstallInstructions\\HomeController.cs.txt")</pre>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div>
+            <a href="@Model.KissLogRequestLogsUrl" target="_blank">
+                <img src="~/Content/KissLog-AspNet-MVC.png" class="img-thumbnail img-responsive" />
+            </a>
+        </div>
+    </div>
+</div>
+
+<h2>Install instructions</h2>
+
+<ol class="installInstructions">
+    <li>
+        <div>
+            Install NuGet package <span class="font-weight-semibold">KissLog.AspNet.Mvc</span>
+        </div>
+        <div>
+            <div class="packageManagerConsole codeBlock minWidth">
+                <div>
+                    PM&gt; Install-Package KissLog.AspNet.Mvc
+                </div>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <div>
+            Update <span class="font-weight-semibold">web.config</span>
+        </div>
+        <div>
+            <div class="d-inline-block minWidth">
+                <pre class="prettyprint linenums">
+@AppHelpers.ReadAppDataFile("InstallInstructions\\web.config.txt")
+</pre>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <div>Update <span class="font-weight-semibold">Global.asax</span></div>
+
+        <div>
+            <div class="d-inline-block minWidth">
+                <pre class="prettyprint linenums">
+@AppHelpers.ReadAppDataFile("InstallInstructions\\Global.asax.txt")
+</pre>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <div>Write logs using <span class="font-weight-semibold">KissLog.ILogger</span></div>
+
+        <div>
+            <div class="d-inline-block minWidth">
+                <pre class="prettyprint linenums">
+@AppHelpers.ReadAppDataFile("InstallInstructions\\HomeController.cs.txt")
+</pre>
+            </div>
+        </div>
+    </li>
+</ol>
+
+
+@section scripts {
+    <script>
+        var placeholders = {
+            organizationId: "@(ConfigurationManager.AppSettings["KissLog.OrganizationId"])",
+            applicationId: "@(ConfigurationManager.AppSettings["KissLog.ApplicationId"])",
+            kissLogApiUrl: "@(ConfigurationManager.AppSettings["KissLog.ApiUrl"])"
+        };
+
+        $("pre").each(function() {
+            App.prettyPrint($(this), placeholders);
+        });
+    </script>
+}

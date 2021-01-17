@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KissLog-AspNetCore-30", "KissLog-AspNetCore-30\KissLog-AspNetCore-30.csproj", "{3F9C8CC8-4450-4925-8823-8D9415DD452A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F9C8CC8-4450-4925-8823-8D9415DD452A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F9C8CC8-4450-4925-8823-8D9415DD452A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F9C8CC8-4450-4925-8823-8D9415DD452A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F9C8CC8-4450-4925-8823-8D9415DD452A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F41DC183-A47B-47E6-A6FA-07B2F54D6335}
+	EndGlobalSection
+EndGlobal

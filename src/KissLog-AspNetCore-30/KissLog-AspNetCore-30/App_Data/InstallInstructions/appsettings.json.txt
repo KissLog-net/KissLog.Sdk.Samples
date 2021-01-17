@@ -1,0 +1,5 @@
+﻿{
+    ::"KissLog.OrganizationId": "{organizationId}",
+    ::"KissLog.ApplicationId": "{applicationId}",
+    ::"KissLog.ApiUrl": "{kissLogApiUrl}"
+}

@@ -135,9 +135,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
@@ -157,19 +154,10 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="WebGrease">
-      <Private>True</Private>
-      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
-    </Reference>
-    <Reference Include="Antlr3.Runtime">
-      <Private>True</Private>
-      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionFilters\TrackExecutionTimeAttribute.cs" />
     <Compile Include="AppHelpers.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Exceptions\ProductNotFoundException.cs" />
@@ -180,59 +168,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\InstallInstructions\AspNetMvc\Global.asax.txt" />
-    <Content Include="App_Data\InstallInstructions\AspNetMvc\HomeController.cs.txt" />
-    <Content Include="App_Data\InstallInstructions\AspNetMvc\NLog.config.txt">
+    <Content Include="App_Data\InstallInstructions\Global.asax.txt" />
+    <Content Include="App_Data\InstallInstructions\HomeController.cs.txt" />
+    <Content Include="App_Data\InstallInstructions\NLog.config.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\InstallInstructions\AspNetMvc\web.config.txt" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\code-prettify\src\lang-apollo.js" />
-    <Content Include="Content\code-prettify\src\lang-basic.js" />
-    <Content Include="Content\code-prettify\src\lang-clj.js" />
-    <Content Include="Content\code-prettify\src\lang-css.js" />
-    <Content Include="Content\code-prettify\src\lang-dart.js" />
-    <Content Include="Content\code-prettify\src\lang-erlang.js" />
-    <Content Include="Content\code-prettify\src\lang-go.js" />
-    <Content Include="Content\code-prettify\src\lang-hs.js" />
-    <Content Include="Content\code-prettify\src\lang-lasso.js" />
-    <Content Include="Content\code-prettify\src\lang-lisp.js" />
-    <Content Include="Content\code-prettify\src\lang-llvm.js" />
-    <Content Include="Content\code-prettify\src\lang-logtalk.js" />
-    <Content Include="Content\code-prettify\src\lang-lua.js" />
-    <Content Include="Content\code-prettify\src\lang-matlab.js" />
-    <Content Include="Content\code-prettify\src\lang-ml.js" />
-    <Content Include="Content\code-prettify\src\lang-mumps.js" />
-    <Content Include="Content\code-prettify\src\lang-n.js" />
-    <Content Include="Content\code-prettify\src\lang-pascal.js" />
-    <Content Include="Content\code-prettify\src\lang-proto.js" />
-    <Content Include="Content\code-prettify\src\lang-r.js" />
-    <Content Include="Content\code-prettify\src\lang-rd.js" />
-    <Content Include="Content\code-prettify\src\lang-rust.js" />
-    <Content Include="Content\code-prettify\src\lang-scala.js" />
-    <Content Include="Content\code-prettify\src\lang-sql.js" />
-    <Content Include="Content\code-prettify\src\lang-swift.js" />
-    <Content Include="Content\code-prettify\src\lang-tcl.js" />
-    <Content Include="Content\code-prettify\src\lang-tex.js" />
-    <Content Include="Content\code-prettify\src\lang-vb.js" />
-    <Content Include="Content\code-prettify\src\lang-vhdl.js" />
-    <Content Include="Content\code-prettify\src\lang-wiki.js" />
-    <Content Include="Content\code-prettify\src\lang-xq.js" />
-    <Content Include="Content\code-prettify\src\lang-yaml.js" />
+    <Content Include="App_Data\InstallInstructions\web.config.txt" />
     <Content Include="Content\code-prettify\src\prettify.css" />
     <Content Include="Content\code-prettify\src\prettify.js" />
-    <Content Include="Content\code-prettify\src\run_prettify.js" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\Site.css" />
+    <Content Include="Content\js\App.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\jquery-3.4.1.min.js" />
     <Content Include="Content\NLog-AspNet-MVC.png" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\App.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -240,17 +191,6 @@
     <Content Include="Content\code-prettify\COPYING" />
     <Content Include="Content\code-prettify\package.json" />
     <Content Include="Content\code-prettify\README.md" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
-    <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -266,17 +206,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

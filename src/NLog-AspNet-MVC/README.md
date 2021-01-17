@@ -1,0 +1,36 @@
+# ASP.NET MVC + NLog &#8680; kisslog.net
+
+**HomeController.cs**
+
+```csharp
+using NLog;
+
+namespace NLog_AspNet_MVC.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly ILogger _logger;
+        public HomeController()
+        {
+            _logger = LogManager.GetCurrentClassLogger();
+        }
+
+        public ActionResult Index()
+        {
+            _logger.Info("Hello world from NLog!");
+            _logger.Trace("Trace message");
+            _logger.Debug("Debug message");
+            _logger.Info("Info message");
+            _logger.Warn("Warning message");
+            _logger.Error("Error message");
+            _logger.Fatal("Fatal message");
+
+            return View();
+        }
+    }
+}
+```
+
+**kisslog.net**
+
+![kisslog.net](/src/NLog-AspNet-MVC/NLog-AspNet-MVC/Content/NLog-AspNet-MVC.png)

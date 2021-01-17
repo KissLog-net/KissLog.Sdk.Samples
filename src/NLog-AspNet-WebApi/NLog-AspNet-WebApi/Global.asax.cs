@@ -2,11 +2,13 @@
 using KissLog.AspNet.Web;
 using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
+using KissLog.FlushArgs;
+using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.Text;
 using System.Web.Http;
 using System.Web.Mvc;
-using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace NLog_AspNet_WebApi
@@ -19,12 +21,58 @@ namespace NLog_AspNet_WebApi
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             ConfigureKissLog();
         }
 
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception exception = Server.GetLastError();
+            if (exception != null)
+            {
+                var logger = Logger.Factory.Get();
+                logger.Error(exception);
+
+                if (logger.AutoFlush() == false)
+                {
+                    Logger.NotifyListeners(logger);
+                }
+            }
+        }
+
         private void ConfigureKissLog()
+        {
+            // optional KissLog configuration
+            KissLogConfiguration.Options
+                .ShouldLogResponseBody((ILogListener listener, FlushLogArgs args, bool defaultValue) =>
+                {
+                    if (args.WebProperties.Request.Url.LocalPath == "/")
+                        return true;
+
+                    return defaultValue;
+                })
+                .AppendExceptionDetails((Exception ex) =>
+                {
+                    StringBuilder sb = new StringBuilder();
+
+                    if (ex is System.NullReferenceException nullRefException)
+                    {
+                        sb.AppendLine("Important: check for null references");
+                    }
+
+                    return sb.ToString();
+                });
+
+            // KissLog internal logs
+            KissLogConfiguration.InternalLog = (message) =>
+            {
+                Debug.WriteLine(message);
+            };
+
+            RegisterKissLogListeners();
+        }
+
+        private void RegisterKissLogListeners()
         {
             // Register KissLog.net cloud listener
             KissLogConfiguration.Listeners.Add(new RequestLogsApiListener(new Application(
@@ -34,11 +82,6 @@ namespace NLog_AspNet_WebApi
             {
                 ApiUrl = ConfigurationManager.AppSettings["KissLog.ApiUrl"]
             });
-
-            KissLogConfiguration.InternalLog = (message) =>
-            {
-                Debug.WriteLine(message);
-            };
         }
 
         public static KissLogHttpModule KissLogHttpModule = new KissLogHttpModule();

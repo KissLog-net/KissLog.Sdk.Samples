@@ -1,0 +1,27 @@
+﻿::using KissLog;
+
+namespace KissLog_AspNetCore_20.Controllers
+{
+    public class HomeController : Controller
+    {
+        ::private readonly ILogger _logger;
+        public HomeController(
+            ILogger logger)
+        {
+            ::_logger = logger;
+        }
+
+        public IActionResult Index()
+        {
+            ::_logger.Info("Hello world from KissLog!");
+            _logger.Trace("Trace message");
+            _logger.Debug("Debug message");
+            _logger.Info("Info message");
+            _logger.Warn("Warning message");
+            _logger.Error("Error message");
+            _logger.Critical("Critical message");
+
+            return View();
+        }
+    }
+}
