@@ -1,22 +1,20 @@
-﻿using KissLog;
-using KissLog_AspNetCore_20.ActionFilters;
-using KissLog_AspNetCore_20.Exceptions;
-using KissLog_AspNetCore_20.Models;
+﻿using KissLog_AspNetCore_30.Exceptions;
+using KissLog_AspNetCore_30.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 
-namespace KissLog_AspNetCore_20.Controllers
+namespace KissLog_AspNetCore_30.Controllers
 {
-    [TrackExecutionTime]
     public class HomeController : Controller
     {
         private readonly IConfiguration _configuration;
-        private readonly ILogger _logger;
+        private readonly ILogger<HomeController> _logger;
         public HomeController(
             IConfiguration configuration,
-            ILogger logger)
+            ILogger<HomeController> logger)
         {
             _configuration = configuration;
             _logger = logger;
@@ -24,20 +22,20 @@ namespace KissLog_AspNetCore_20.Controllers
 
         public IActionResult Index()
         {
-            _logger.Info("Hello world from KissLog!");
+            _logger.LogInformation("Hello world from KissLog!");
 
-            _logger.Trace("Trace message");
-            _logger.Debug("Debug message");
-            _logger.Info("Info message");
-            _logger.Warn("Warning message");
-            _logger.Error("Error message");
-            _logger.Critical("Critical message");
+            _logger.LogTrace("Trace message");
+            _logger.LogDebug("Debug message");
+            _logger.LogInformation("Info message");
+            _logger.LogWarning("Warning message");
+            _logger.LogError("Error message");
+            _logger.LogCritical("Critical message");
 
             string applicationId = _configuration["KissLog.ApplicationId"];
 
             var viewModel = new IndexViewModel
             {
-                KissLogRequestLogsUrl = $"https://kisslog.net/RequestLogs/{applicationId}/kisslog-aspnetcore-2x",
+                KissLogRequestLogsUrl = $"https://kisslog.net/RequestLogs/{applicationId}/kisslog-aspnetcore-3x",
                 LocalTextFilesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs")
             };
 
