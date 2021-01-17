@@ -1,4 +1,4 @@
-# ASP.NET MVC + NLog &#8680; kisslog.net
+# ASP.NET WebApi + NLog &#8680; kisslog.net
 
 **ValuesController.cs**
 
