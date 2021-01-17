@@ -1,9 +1,11 @@
 ﻿using KissLog;
+using KissLog_AspNet_WebApi.ActionFilters;
 using System.Collections.Generic;
 using System.Web.Http;
 
 namespace KissLog_AspNet_WebApi.Controllers
 {
+    [TrackExecutionTime]
     public class ValuesController : ApiController
     {
         private readonly ILogger _logger;
