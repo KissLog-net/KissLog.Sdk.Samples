@@ -168,12 +168,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\InstallInstructions\AspNetMvc\Global.asax.txt" />
-    <Content Include="App_Data\InstallInstructions\AspNetMvc\HomeController.cs.txt" />
-    <Content Include="App_Data\InstallInstructions\AspNetMvc\NLog.config.txt">
+    <Content Include="App_Data\InstallInstructions\Global.asax.txt" />
+    <Content Include="App_Data\InstallInstructions\HomeController.cs.txt" />
+    <Content Include="App_Data\InstallInstructions\NLog.config.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\InstallInstructions\AspNetMvc\web.config.txt" />
+    <Content Include="App_Data\InstallInstructions\web.config.txt" />
     <Content Include="Content\code-prettify\src\prettify.css" />
     <Content Include="Content\code-prettify\src\prettify.js" />
     <Content Include="Content\css\bootstrap.min.css" />
