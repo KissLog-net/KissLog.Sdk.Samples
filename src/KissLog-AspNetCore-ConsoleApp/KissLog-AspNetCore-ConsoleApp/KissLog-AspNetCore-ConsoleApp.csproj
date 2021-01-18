@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>KissLog_AspNetCore_ConsoleApp</RootNamespace>
+    <AssemblyName>KissLog_AspNetCore_ConsoleApp</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
