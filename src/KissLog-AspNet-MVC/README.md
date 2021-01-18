@@ -1,4 +1,6 @@
-# ASP.NET MVC + KissLog &#8680; kisslog.net
+# ASP.NET MVC + KissLog ---> kisslog.net
+
+https://kisslog.net/RequestLogs/35f66045-16df-4a3a-9cb4-b1762b464348/kisslog-aspnet-mvc
 
 **HomeController.cs**
 

@@ -1,4 +1,6 @@
-# .NET Core 3.x + KissLog &#8680; kisslog.net
+# .NET Core 3.x + KissLog ---> kisslog.net
+
+https://kisslog.net/RequestLogs/78c66052-841c-444e-840e-7bfcf4fd99dd/kisslog-aspnetcore-3x
 
 **HomeController.cs**
 

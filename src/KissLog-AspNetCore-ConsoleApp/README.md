@@ -1,4 +1,6 @@
-# .NET Core ConsoleApp + KissLog &#8680; kisslog.net
+# .NET Core ConsoleApp + KissLog ---> kisslog.net
+
+https://kisslog.net/RequestLogs/70632bac-7c20-446e-9109-49b4f91203f2/kisslog-aspnetcore-consoleapp
 
 **Program.cs**
 
@@ -32,7 +34,6 @@ namespace KissLog_AspNetCore_ConsoleApp
         }
     }
 }
-
 ```
 
 **kisslog.net**

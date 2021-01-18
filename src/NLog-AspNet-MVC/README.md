@@ -1,4 +1,6 @@
-# ASP.NET MVC + NLog &#8680; kisslog.net
+# ASP.NET MVC + NLog ---> kisslog.net
+
+https://kisslog.net/RequestLogs/85c8a25f-c5b9-4069-b219-09cdcb401f28/nlog-aspnet-mvc
 
 **HomeController.cs**
 

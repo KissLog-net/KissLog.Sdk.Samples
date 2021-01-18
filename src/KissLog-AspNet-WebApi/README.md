@@ -1,4 +1,6 @@
-# ASP.NET WebApi + KissLog &#8680; kisslog.net
+# ASP.NET WebApi + KissLog ---> kisslog.net
+
+https://kisslog.net/RequestLogs/2e8bdc01-836e-4280-935a-e3a140c14b8c/kisslog-aspnet-webapi
 
 **ValuesController.cs**
 
