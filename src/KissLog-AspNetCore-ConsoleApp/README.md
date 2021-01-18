@@ -11,6 +11,8 @@ namespace KissLog_AspNetCore_ConsoleApp
     {
         static void Main(string[] args)
         {
+            ConfigureKissLog();
+
             ILogger logger = new Logger(url: "/Program/Main");
 
             try
