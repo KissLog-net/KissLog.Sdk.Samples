@@ -35,7 +35,7 @@ namespace KissLog_AspNetCore_20.Controllers
 
 **kisslog.net**
 
-![kisslog.net](/src/KissLog-AspNetCore-20/KissLog-AspNetCore-20/wwwroot/KissLog-AspNetCore-2x.png)
+![kisslog.net](/src/KissLog-AspNetCore-20/KissLog-AspNetCore-20/wwwroot/KissLog-AspNetCore-20.png)
 
 Description:
 
