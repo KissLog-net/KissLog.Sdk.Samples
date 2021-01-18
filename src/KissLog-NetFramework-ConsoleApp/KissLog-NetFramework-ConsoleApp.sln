@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30607.51
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KissLog-NetFramework-ConsoleApp", "KissLog-NetFramework-ConsoleApp\KissLog-NetFramework-ConsoleApp.csproj", "{DF27E8C2-EBE6-4763-9734-9959F20F180B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF27E8C2-EBE6-4763-9734-9959F20F180B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF27E8C2-EBE6-4763-9734-9959F20F180B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF27E8C2-EBE6-4763-9734-9959F20F180B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF27E8C2-EBE6-4763-9734-9959F20F180B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F43B3D2-53B3-41B1-B4ED-83355A8C1DF3}
+	EndGlobalSection
+EndGlobal
