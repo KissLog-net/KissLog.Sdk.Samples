@@ -36,3 +36,7 @@ namespace KissLog_AspNetCore_30.Controllers
 **kisslog.net**
 
 ![kisslog.net](/src/KissLog-AspNetCore-30/KissLog-AspNetCore-30/wwwroot/KissLog-AspNetCore-3x.png)
+
+Description:
+
+.NET Core 3.x application using KissLog to save logs to kisslog.net
