@@ -37,6 +37,10 @@ namespace KissLog_AspNetCore_20.Controllers
 
 ![kisslog.net](/src/KissLog-AspNetCore-20/KissLog-AspNetCore-20/wwwroot/KissLog-AspNetCore-20.png)
 
+DisplayName:
+
+.NET Core 2.x + KissLog
+
 Description:
 
 .NET Core 2.x application using KissLog to save logs to kisslog.net

@@ -40,6 +40,10 @@ namespace KissLog_NetFramework_ConsoleApp
 
 ![kisslog.net](/src/KissLog-NetFramework-ConsoleApp/KissLog-NetFramework-ConsoleApp/KissLog-NetFramework-ConsoleApp.png)
 
+DisplayName:
+
+.NET Framework ConsoleApp + KissLog
+
 Description:
 
 ASP.NET ConsoleApp using KissLog to save logs to kisslog.net

@@ -37,6 +37,10 @@ namespace KissLog_AspNet_WebApi.Controllers
 
 ![kisslog.net](/src/KissLog-AspNet-WebApi/KissLog-AspNet-WebApi/Content/KissLog-AspNet-WebApi.png)
 
+DisplayName:
+
+ASP.NET WebApi + KissLog
+
 Description:
 
 ASP.NET WebApi application using KissLog to save logs to kisslog.net

@@ -61,6 +61,10 @@ namespace KissLog_WindowsService
 
 ![kisslog.net](/src/KissLog-WindowsService/KissLog-WindowsService/KissLog-WindowsService.png)
 
+DisplayName:
+
+WindowsService + KissLog
+
 Description:
 
 WindowsService application using KissLog to save logs to kisslog.net

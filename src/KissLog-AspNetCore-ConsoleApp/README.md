@@ -40,6 +40,10 @@ namespace KissLog_AspNetCore_ConsoleApp
 
 ![kisslog.net](/src/KissLog-AspNetCore-ConsoleApp/KissLog-AspNetCore-ConsoleApp/KissLog-AspNetCore-ConsoleApp.png)
 
+DisplayName:
+
+.NET Core ConsoleApp + KissLog
+
 Description:
 
 .NET Core ConsoleApp using KissLog to save logs to kisslog.net

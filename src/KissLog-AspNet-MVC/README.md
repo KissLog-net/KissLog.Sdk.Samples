@@ -37,6 +37,10 @@ namespace KissLog_AspNet_MVC.Controllers
 
 ![kisslog.net](/src/KissLog-AspNet-MVC/KissLog-AspNet-MVC/Content/KissLog-AspNet-MVC.png)
 
+DisplayName:
+
+ASP.NET MVC + KissLog
+
 Description:
 
 ASP.NET MVC application using KissLog to save logs to kisslog.net
