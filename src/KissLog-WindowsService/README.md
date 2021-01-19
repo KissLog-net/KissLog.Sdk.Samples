@@ -2,7 +2,7 @@
 
 https://kisslog.net/RequestLogs/9a4d0f95-0969-4205-a5f5-3e62d3a51d78/kisslog-windowsservice
 
-**Program.cs**
+**MyService.cs**
 
 ```csharp
 using KissLog;
