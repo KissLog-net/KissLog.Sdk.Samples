@@ -4,7 +4,6 @@ using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
 using KissLog.Listeners;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -28,18 +27,23 @@ namespace KissLog_AspNetCore_20
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped<ILogger>((context) =>
+            services.AddScoped<KissLog.ILogger>((context) =>
             {
                 return Logger.Factory.Get();
             });
 
             services.AddSession();
 
+            services.AddLogging(logging =>
+            {
+                logging.AddKissLog();
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseStaticFiles();
             app.UseAuthentication();
