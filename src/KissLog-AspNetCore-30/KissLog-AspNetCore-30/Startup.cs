@@ -35,6 +35,11 @@ namespace KissLog_AspNetCore_30
 
             services.AddSession();
 
+            services.AddLogging(logging =>
+            {
+                logging.AddKissLog();
+            });
+
             services.AddControllersWithViews();
         }
 

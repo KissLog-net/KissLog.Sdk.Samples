@@ -1,6 +1,6 @@
-﻿using KissLog;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Diagnostics;
 
@@ -18,7 +18,7 @@ namespace KissLog_AspNetCore_30.ActionFilters
             private readonly Stopwatch _sw;
             private readonly Random _random;
             public TrackExecutionTimeAttributeImpl(
-                ILogger logger)
+                ILogger<TrackExecutionTimeAttributeImpl> logger)
             {
                 _logger = logger;
                 _sw = new Stopwatch();
@@ -27,7 +27,7 @@ namespace KissLog_AspNetCore_30.ActionFilters
 
             public void OnActionExecuting(ActionExecutingContext context)
             {
-                _logger.Trace($"{nameof(TrackExecutionTimeAttribute)} begin");
+                _logger.LogTrace($"{nameof(TrackExecutionTimeAttribute)} begin");
 
                 _sw.Restart();
 
@@ -44,7 +44,7 @@ namespace KissLog_AspNetCore_30.ActionFilters
 
                 context.HttpContext.Response.Headers.Add("X-ElapsedMilliseconds", elapsedMs.ToString());
 
-                _logger.Trace($"{nameof(TrackExecutionTimeAttribute)} complete. Took: {elapsedMs}ms.");
+                _logger.LogTrace($"{nameof(TrackExecutionTimeAttribute)} complete. Took: {elapsedMs}ms.");
             }
         }
     }
