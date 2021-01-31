@@ -1,0 +1,13 @@
+﻿{
+    "Logging": {
+        "LogLevel": {
+            "Default": "Trace",
+            "Microsoft": "Warning",
+            "Microsoft.Hosting.Lifetime": "Information"
+        }
+    },
+
+    ::"KissLog.OrganizationId": "{organizationId}",
+    ::"KissLog.ApplicationId": "{applicationId}",
+    ::"KissLog.ApiUrl": "{kissLogApiUrl}"
+}
