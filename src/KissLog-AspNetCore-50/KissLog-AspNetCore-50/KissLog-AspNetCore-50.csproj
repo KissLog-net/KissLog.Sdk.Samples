@@ -10,11 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\KissLog.Sdk\src\KissLog.AspNetCore\KissLog.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\..\..\KissLog.Sdk\src\KissLog.CloudListeners\KissLog.CloudListeners.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="App_Data\InstallInstructions\appsettings.json.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
