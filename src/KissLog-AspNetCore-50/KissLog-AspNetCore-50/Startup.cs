@@ -37,6 +37,8 @@ namespace KissLog_AspNetCore_50
                 logging.AddKissLog();
             });
 
+            services.AddSession();
+
             services.AddControllersWithViews();
         }
 
@@ -46,7 +48,9 @@ namespace KissLog_AspNetCore_50
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseKissLogMiddleware(options => {
                 ConfigureKissLog(options);

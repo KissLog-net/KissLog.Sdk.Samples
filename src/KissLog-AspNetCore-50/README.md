@@ -1,13 +1,13 @@
-# .NET Core 3.x + KissLog ---> kisslog.net
+# .NET Core 5.x + KissLog ---> kisslog.net
 
-https://kisslog.net/RequestLogs/78c66052-841c-444e-840e-7bfcf4fd99dd/kisslog-aspnetcore-3x
+https://kisslog.net/RequestLogs/a6171034-d02f-4df7-9ba6-b6ba4becbf9d/kisslog-aspnetcore-5x
 
 **HomeController.cs**
 
 ```csharp
 using Microsoft.Extensions.Logging;
 
-namespace KissLog_AspNetCore_30.Controllers
+namespace KissLog_AspNetCore_50.Controllers
 {
     public class HomeController : Controller
     {
@@ -36,12 +36,12 @@ namespace KissLog_AspNetCore_30.Controllers
 
 **kisslog.net**
 
-![kisslog.net](/src/KissLog-AspNetCore-30/KissLog-AspNetCore-30/wwwroot/KissLog-AspNetCore-30.png)
+![kisslog.net](/src/KissLog-AspNetCore-50/KissLog-AspNetCore-50/wwwroot/KissLog-AspNetCore-50.png)
 
 DisplayName:
 
-.NET Core 3.x + KissLog
+.NET Core 5.x + KissLog
 
 Description:
 
-.NET Core 3.x application using KissLog to save logs to kisslog.net
+.NET Core 5.x application using KissLog to save logs to kisslog.net
