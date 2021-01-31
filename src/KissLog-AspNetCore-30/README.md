@@ -5,27 +5,28 @@ https://kisslog.net/RequestLogs/78c66052-841c-444e-840e-7bfcf4fd99dd/kisslog-asp
 **HomeController.cs**
 
 ```csharp
-using KissLog;
+using Microsoft.Extensions.Logging;
 
 namespace KissLog_AspNetCore_30.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger _logger;
-        public HomeController(ILogger logger)
+        private readonly ILogger<HomeController> _logger;
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            _logger.Info("Hello world from KissLog!");
-            _logger.Trace("Trace message");
-            _logger.Debug("Debug message");
-            _logger.Info("Info message");
-            _logger.Warn("Warning message");
-            _logger.Error("Error message");
-            _logger.Critical("Critical message");
+            _logger.LogInformation("Hello world from KissLog!");
+
+            _logger.LogTrace("Trace message");
+            _logger.LogDebug("Debug message");
+            _logger.LogInformation("Info message");
+            _logger.LogWarning("Warning message");
+            _logger.LogError("Error message");
+            _logger.LogCritical("Critical message");
 
             return View();
         }

@@ -1,0 +1,113 @@
+﻿@model KissLog_AspNetCore_50.Models.IndexViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<p>This .NET Core 5.x application is using KissLog to write the logs on:</p>
+
+<ol class="list">
+    <li>
+        Local text files: <br />
+        @Model.LocalTextFilesPath
+    </li>
+    <li>
+        kisslog.net: <br />
+        <a href="@Model.KissLogRequestLogsUrl" target="_blank">@Model.KissLogRequestLogsUrl</a>
+    </li>
+</ol>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div>
+            <div>HomeController.cs</div>
+            <pre class="prettyprint linenums">@AppHelpers.ReadAppDataFile("InstallInstructions\\HomeController.cs.txt")</pre>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div>
+            <a href="@Model.KissLogRequestLogsUrl" target="_blank">
+                <img src="~/KissLog-AspNetCore-50.png" class="img-thumbnail img-responsive" />
+            </a>
+        </div>
+    </div>
+</div>
+
+<h2>Install instructions</h2>
+
+<ol class="installInstructions">
+    <li>
+        <div>
+            Install NuGet package <span class="font-weight-semibold">KissLog.AspNetCore</span>
+        </div>
+        <div>
+            <div class="packageManagerConsole codeBlock minWidth">
+                <div>
+                    PM&gt; Install-Package KissLog.AspNetCore
+                </div>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <div>
+            Update <span class="font-weight-semibold">appsettings.json</span>
+        </div>
+        <div>
+            <div class="d-inline-block minWidth">
+                <pre class="prettyprint linenums">
+@AppHelpers.ReadAppDataFile("InstallInstructions\\appsettings.json.txt")
+</pre>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <div>Update <span class="font-weight-semibold">Startup.cs</span></div>
+
+        <div>
+            <div class="d-inline-block minWidth">
+                <pre class="prettyprint linenums">
+@AppHelpers.ReadAppDataFile("InstallInstructions\\Startup.cs.txt")
+</pre>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <p>Write logs using <span>ILogger&lt;HomeController&gt;</span></p>
+
+        <div>
+            <div class="d-inline-block minWidth">
+                <pre class="prettyprint linenums">
+@AppHelpers.ReadAppDataFile("InstallInstructions\\HomeController.cs.txt")
+</pre>
+            </div>
+        </div>
+
+        <div class="separator">or</div>
+
+        <p>Write logs using <span>KissLog.ILogger</span></p>
+
+        <div>
+            <div class="d-inline-block minWidth">
+                <pre class="prettyprint linenums">
+@AppHelpers.ReadAppDataFile("InstallInstructions\\KissLog_HomeController.cs.txt")
+</pre>
+            </div>
+        </div>
+    </li>
+</ol>
+
+@section scripts {
+    <script>
+        var placeholders = {
+            organizationId: "@(Configuration["KissLog.OrganizationId"])",
+            applicationId: "@(Configuration["KissLog.ApplicationId"])",
+            kissLogApiUrl: "@(Configuration["KissLog.ApiUrl"])"
+        };
+
+        $("pre").each(function() {
+            App.prettyPrint($(this), placeholders);
+        });
+    </script>
+}

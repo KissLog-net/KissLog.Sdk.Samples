@@ -44,20 +44,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="KissLog, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KissLog.4.0.0\lib\net45\KissLog.dll</HintPath>
+    <Reference Include="KissLog, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KissLog.4.1.0\lib\net45\KissLog.dll</HintPath>
     </Reference>
-    <Reference Include="KissLog.Adapters.NLog, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KissLog.Adapters.NLog.4.0.0\lib\net45\KissLog.Adapters.NLog.dll</HintPath>
+    <Reference Include="KissLog.Adapters.NLog, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KissLog.Adapters.NLog.4.1.0\lib\net45\KissLog.Adapters.NLog.dll</HintPath>
     </Reference>
-    <Reference Include="KissLog.AspNet.Web, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KissLog.AspNet.Web.4.0.0\lib\net452\KissLog.AspNet.Web.dll</HintPath>
+    <Reference Include="KissLog.AspNet.Web, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KissLog.AspNet.Web.4.1.0\lib\net452\KissLog.AspNet.Web.dll</HintPath>
     </Reference>
-    <Reference Include="KissLog.AspNet.WebApi, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KissLog.AspNet.WebApi.4.0.0\lib\net452\KissLog.AspNet.WebApi.dll</HintPath>
+    <Reference Include="KissLog.AspNet.WebApi, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KissLog.AspNet.WebApi.4.1.0\lib\net452\KissLog.AspNet.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="KissLog.CloudListeners, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KissLog.CloudListeners.4.0.0\lib\net45\KissLog.CloudListeners.dll</HintPath>
+    <Reference Include="KissLog.CloudListeners, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KissLog.CloudListeners.4.1.0\lib\net45\KissLog.CloudListeners.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
