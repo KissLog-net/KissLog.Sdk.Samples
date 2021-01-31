@@ -14,7 +14,7 @@ namespace KissLog_AspNetCore_30.ActionFilters
 
         private class TrackExecutionTimeAttributeImpl : IActionFilter
         {
-            private readonly ILogger _logger;
+            private readonly ILogger<TrackExecutionTimeAttributeImpl> _logger;
             private readonly Stopwatch _sw;
             private readonly Random _random;
             public TrackExecutionTimeAttributeImpl(

@@ -2,7 +2,7 @@
     "Logging": {
         "LogLevel": {
             "Default": "Trace",
-            "Microsoft": "Warning",
+            "Microsoft": "Information",
             "Microsoft.Hosting.Lifetime": "Information"
         }
     },
