@@ -6,11 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="KissLog.AspNetCore" Version="4.1.1" />
+    <PackageReference Include="KissLog.AspNetCore" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\KissLog.Sdk\src\KissLog.AspNetCore\KissLog.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\KissLog.Sdk\src\KissLog.CloudListeners\KissLog.CloudListeners.csproj" />
   </ItemGroup>
 
   <ItemGroup>
