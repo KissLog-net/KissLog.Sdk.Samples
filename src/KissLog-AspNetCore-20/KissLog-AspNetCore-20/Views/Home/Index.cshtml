@@ -19,7 +19,7 @@
 <div class="row">
     <div class="col-lg-6">
         <div>
-            <div>KissLog + HomeController.cs</div>
+            <div>HomeController.cs</div>
             <pre class="prettyprint linenums">@AppHelpers.ReadAppDataFile("InstallInstructions\\HomeController.cs.txt")</pre>
         </div>
     </div>
@@ -74,12 +74,24 @@
     </li>
 
     <li>
-        <div>Write logs using <span class="font-weight-semibold">KissLog.ILogger</span></div>
+        <p>Write logs using <span>ILogger&lt;HomeController&gt;</span></p>
 
         <div>
             <div class="d-inline-block minWidth">
                 <pre class="prettyprint linenums">
 @AppHelpers.ReadAppDataFile("InstallInstructions\\HomeController.cs.txt")
+</pre>
+            </div>
+        </div>
+
+        <div class="separator">or</div>
+
+        <p>Write logs using <span>KissLog.ILogger</span></p>
+
+        <div>
+            <div class="d-inline-block minWidth">
+                <pre class="prettyprint linenums">
+@AppHelpers.ReadAppDataFile("InstallInstructions\\KissLog_HomeController.cs.txt")
 </pre>
             </div>
         </div>

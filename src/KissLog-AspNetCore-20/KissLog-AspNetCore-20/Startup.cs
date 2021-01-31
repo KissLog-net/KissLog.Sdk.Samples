@@ -32,12 +32,12 @@ namespace KissLog_AspNetCore_20
                 return Logger.Factory.Get();
             });
 
-            services.AddSession();
-
             services.AddLogging(logging =>
             {
                 logging.AddKissLog();
             });
+
+            services.AddSession();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -45,6 +45,7 @@ namespace KissLog_AspNetCore_20
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
+            app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseSession();

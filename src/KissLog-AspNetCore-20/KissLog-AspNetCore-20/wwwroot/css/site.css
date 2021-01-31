@@ -71,3 +71,20 @@ ol.installInstructions > li:before {
     content: "Package Manager Console";
 }
 
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+.separator::before {
+    margin-right: 1.25em;
+}
+.separator::after {
+    margin-left: 1.25em;
+}
