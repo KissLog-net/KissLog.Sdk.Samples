@@ -1,4 +1,6 @@
-﻿namespace KissLog_AspNetCore_50.Controllers
+﻿::using Microsoft.Extensions.Logging;
+
+namespace KissLog_AspNetCore_50.Controllers
 {
     public class HomeController : Controller
     {

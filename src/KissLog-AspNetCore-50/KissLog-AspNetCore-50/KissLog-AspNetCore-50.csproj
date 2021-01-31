@@ -17,6 +17,9 @@
     <None Update="App_Data\InstallInstructions\appsettings.json.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="App_Data\InstallInstructions\KissLog_HomeController.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="App_Data\InstallInstructions\HomeController.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
