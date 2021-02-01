@@ -42,7 +42,7 @@ namespace KissLog_NetFramework_ConsoleApp
 
 DisplayName:
 
-.NET Framework ConsoleApp + KissLog
+.NET Framework ConsoleApp
 
 Description:
 

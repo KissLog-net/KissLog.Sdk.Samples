@@ -39,7 +39,7 @@ namespace KissLog_AspNet_MVC.Controllers
 
 DisplayName:
 
-ASP.NET MVC + KissLog
+ASP.NET MVC
 
 Description:
 

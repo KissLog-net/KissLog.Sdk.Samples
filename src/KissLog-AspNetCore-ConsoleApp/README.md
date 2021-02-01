@@ -42,7 +42,7 @@ namespace KissLog_AspNetCore_ConsoleApp
 
 DisplayName:
 
-.NET Core ConsoleApp + KissLog
+.NET Core ConsoleApp
 
 Description:
 
