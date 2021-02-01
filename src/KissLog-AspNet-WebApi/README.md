@@ -39,7 +39,7 @@ namespace KissLog_AspNet_WebApi.Controllers
 
 DisplayName:
 
-ASP.NET WebApi + KissLog
+ASP.NET WebApi
 
 Description:
 

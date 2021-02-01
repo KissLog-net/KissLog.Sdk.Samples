@@ -63,7 +63,7 @@ namespace KissLog_WindowsService
 
 DisplayName:
 
-WindowsService + KissLog
+WindowsService
 
 Description:
 

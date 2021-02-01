@@ -40,7 +40,7 @@ namespace KissLog_AspNetCore_50.Controllers
 
 DisplayName:
 
-.NET Core 5.x + KissLog
+.NET Core 5.x
 
 Description:
 
