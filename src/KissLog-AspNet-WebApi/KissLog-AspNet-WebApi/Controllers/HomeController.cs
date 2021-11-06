@@ -12,7 +12,7 @@ namespace KissLog_AspNet_WebApi.Controllers
     [TrackExecutionTime]
     public class HomeController : Controller
     {
-        private readonly ILogger _logger;
+        private readonly IKLogger _logger;
         public HomeController()
         {
             _logger = Logger.Factory.Get();

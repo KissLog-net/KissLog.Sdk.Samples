@@ -6,14 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="KissLog.AspNetCore" Version="4.1.0" />
+    <PackageReference Include="KissLog.AspNetCore" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="App_Data\InstallInstructions\appsettings.json.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="App_Data\InstallInstructions\KissLog_HomeController.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="App_Data\InstallInstructions\HomeController.cs.txt">

@@ -44,13 +44,6 @@ namespace NLog_AspNet_MVC
         {
             // optional KissLog configuration
             KissLogConfiguration.Options
-                .ShouldLogResponseBody((ILogListener listener, FlushLogArgs args, bool defaultValue) =>
-                {
-                    if (args.WebProperties.Request.Url.LocalPath == "/")
-                        return true;
-
-                    return defaultValue;
-                })
                 .AppendExceptionDetails((Exception ex) =>
                 {
                     StringBuilder sb = new StringBuilder();

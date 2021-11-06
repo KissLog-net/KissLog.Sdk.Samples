@@ -8,7 +8,7 @@ namespace KissLog_AspNet_WebApi.Controllers
     [TrackExecutionTime]
     public class ValuesController : ApiController
     {
-        private readonly ILogger _logger;
+        private readonly IKLogger _logger;
         public ValuesController()
         {
             _logger = Logger.Factory.Get();

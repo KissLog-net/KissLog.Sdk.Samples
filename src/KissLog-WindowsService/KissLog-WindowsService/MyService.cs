@@ -1,11 +1,10 @@
 ﻿using KissLog;
 using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
-using KissLog.Listeners;
+using KissLog.Listeners.FileListener;
 using System;
 using System.Configuration;
 using System.Diagnostics;
-using System.IO;
 using System.ServiceProcess;
 using System.Text;
 using System.Timers;
@@ -17,7 +16,7 @@ namespace KissLog_WindowsService
         private readonly Timer _timer = new Timer();
         private readonly int _triggerInterval = 1000;
 
-        private ILogger Logger = new Logger();
+        private IKLogger Logger = new Logger();
 
         public MyService()
         {
@@ -47,22 +46,20 @@ namespace KissLog_WindowsService
 
         public void Execute(object source, ElapsedEventArgs e)
         {
-            ILogger logger = new Logger(url: "MyService/Execute");
+            KissLog.Logger.SetFactory(new LoggerFactory(new Logger(url: "MyService/Execute")));
 
-            try
-            {
-                logger.Info("Hello world from KissLog!");
-                logger.Trace("Trace message");
-                logger.Debug("Debug message");
-                logger.Info("Info message");
-                logger.Warn("Warning message");
-                logger.Error("Error message");
-                logger.Critical("Critical message");
-            }
-            finally
-            {
-                KissLog.Logger.NotifyListeners(logger);
-            }
+            IKLogger logger = KissLog.Logger.Factory.Get();
+
+            logger.Info("Hello world from KissLog!");
+            logger.Trace("Trace message");
+            logger.Debug("Debug message");
+            logger.Info("Info message");
+            logger.Warn("Warning message");
+            logger.Error("Error message");
+            logger.Critical("Critical message");
+
+            var loggers = KissLog.Logger.Factory.GetAll();
+            KissLog.Logger.NotifyListeners(loggers);
         }
 
         private static void ConfigureKissLog()
@@ -105,10 +102,7 @@ namespace KissLog_WindowsService
             });
 
             // Register local text files listener
-            KissLogConfiguration.Listeners.Add(new LocalTextFileListener(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs"))
-            {
-                FlushTrigger = FlushTrigger.OnMessage
-            });
+            KissLogConfiguration.Listeners.Add(new LocalTextFileListener("logs", FlushTrigger.OnMessage));
         }
 
     }

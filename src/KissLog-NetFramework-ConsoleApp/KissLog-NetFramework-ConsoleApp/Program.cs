@@ -1,7 +1,7 @@
 ﻿using KissLog;
 using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
-using KissLog.Listeners;
+using KissLog.Listeners.FileListener;
 using System;
 using System.Configuration;
 using System.IO;
@@ -13,27 +13,25 @@ namespace KissLog_NetFramework_ConsoleApp
     {
         static void Main(string[] args)
         {
-            string intro = CreateIntro();
-            Console.WriteLine(intro);
+            Logger.SetFactory(new LoggerFactory(new Logger(url: "ConsoleApp/Main")));
 
             ConfigureKissLog();
 
-            ILogger logger = new Logger(url: "/Program/Main");
+            string intro = CreateIntro();
+            Console.WriteLine(intro);
 
-            try
-            {
-                logger.Info("Hello world from KissLog!");
-                logger.Trace("Trace message");
-                logger.Debug("Debug message");
-                logger.Info("Info message");
-                logger.Warn("Warning message");
-                logger.Error("Error message");
-                logger.Critical("Critical message");
-            }
-            finally
-            {
-                Logger.NotifyListeners(logger);
-            }
+            IKLogger logger = Logger.Factory.Get();
+
+            logger.Info("Hello world from KissLog!");
+            logger.Trace("Trace message");
+            logger.Debug("Debug message");
+            logger.Info("Info message");
+            logger.Warn("Warning message");
+            logger.Error("Error message");
+            logger.Critical("Critical message");
+
+            var loggers = Logger.Factory.GetAll();
+            Logger.NotifyListeners(loggers);
         }
 
         private static void ConfigureKissLog()
@@ -76,10 +74,7 @@ namespace KissLog_NetFramework_ConsoleApp
             });
 
             // Register local text files listener
-            KissLogConfiguration.Listeners.Add(new LocalTextFileListener(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs"))
-            {
-                FlushTrigger = FlushTrigger.OnMessage
-            });
+            KissLogConfiguration.Listeners.Add(new LocalTextFileListener("logs", FlushTrigger.OnMessage));
         }
 
         private static string CreateIntro()

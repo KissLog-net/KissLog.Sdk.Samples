@@ -2,7 +2,9 @@ using KissLog;
 using KissLog.AspNetCore;
 using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
+using KissLog.Formatters;
 using KissLog.Listeners;
+using KissLog.Listeners.FileListener;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -27,15 +29,28 @@ namespace KissLog_AspNetCore_30
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped<ILogger>((context) =>
-            {
-                return Logger.Factory.Get();
-            });
+            services.AddHttpContextAccessor();
 
             services.AddLogging(logging =>
             {
-                logging.AddKissLog();
+                logging.AddKissLog(options =>
+                {
+                    options.Formatter = (FormatterArgs args) =>
+                    {
+                        string message = args.DefaultValue;
+
+                        if (args.Exception == null)
+                            return message;
+
+                        string exceptionStr = new ExceptionFormatter().Format(args.Exception, args.Logger);
+
+                        StringBuilder sb = new StringBuilder();
+                        sb.AppendLine(message);
+                        sb.Append(exceptionStr);
+
+                        return sb.ToString();
+                    };
+                });
             });
 
             services.AddSession();
@@ -105,10 +120,7 @@ namespace KissLog_AspNetCore_30
             });
 
             // Register local text files listener
-            options.Listeners.Add(new LocalTextFileListener(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs"))
-            {
-                FlushTrigger = FlushTrigger.OnMessage
-            });
+            options.Listeners.Add(new LocalTextFileListener("logs", FlushTrigger.OnMessage));
         }
     }
 }

@@ -8,10 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="KissLog" Version="4.1.0" />
-    <PackageReference Include="KissLog.CloudListeners" Version="4.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.11" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.11" />
+    <PackageReference Include="KissLog" Version="5.0.0" />
+    <PackageReference Include="KissLog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="KissLog.CloudListeners" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
