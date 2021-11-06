@@ -3,12 +3,10 @@ using KissLog.AspNet.Mvc;
 using KissLog.AspNet.Web;
 using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
-using KissLog.FlushArgs;
-using KissLog.Listeners;
+using KissLog.Listeners.FileListener;
 using System;
 using System.Configuration;
 using System.Diagnostics;
-using System.IO;
 using System.Text;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -46,13 +44,6 @@ namespace KissLog_AspNet_MVC
         {
             // optional KissLog configuration
             KissLogConfiguration.Options
-                .ShouldLogResponseBody((ILogListener listener, FlushLogArgs args, bool defaultValue) =>
-                {
-                    if (args.WebProperties.Request.Url.LocalPath == "/")
-                        return true;
-
-                    return defaultValue;
-                })
                 .AppendExceptionDetails((Exception ex) =>
                 {
                     StringBuilder sb = new StringBuilder();
@@ -88,10 +79,7 @@ namespace KissLog_AspNet_MVC
             });
 
             // Register local text files listener
-            KissLogConfiguration.Listeners.Add(new LocalTextFileListener(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs"))
-            {
-                FlushTrigger = FlushTrigger.OnMessage
-            });
+            KissLogConfiguration.Listeners.Add(new LocalTextFileListener("logs", FlushTrigger.OnMessage));
         }
 
         public static KissLogHttpModule KissLogHttpModule = new KissLogHttpModule();

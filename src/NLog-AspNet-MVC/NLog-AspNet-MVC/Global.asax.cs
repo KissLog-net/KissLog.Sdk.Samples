@@ -3,7 +3,6 @@ using KissLog.AspNet.Mvc;
 using KissLog.AspNet.Web;
 using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
-using KissLog.FlushArgs;
 using System;
 using System.Configuration;
 using System.Diagnostics;
@@ -44,13 +43,6 @@ namespace NLog_AspNet_MVC
         {
             // optional KissLog configuration
             KissLogConfiguration.Options
-                .ShouldLogResponseBody((ILogListener listener, FlushLogArgs args, bool defaultValue) =>
-                {
-                    if (args.WebProperties.Request.Url.LocalPath == "/")
-                        return true;
-
-                    return defaultValue;
-                })
                 .AppendExceptionDetails((Exception ex) =>
                 {
                     StringBuilder sb = new StringBuilder();

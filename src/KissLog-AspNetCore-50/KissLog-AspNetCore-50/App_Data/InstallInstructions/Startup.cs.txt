@@ -26,16 +26,29 @@ namespace KissLog_AspNetCore_50
 
         public void ConfigureServices(IServiceCollection services)
         {
-            ::services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            ::services.AddScoped<ILogger>((context) =>
-            ::{
-                ::return Logger.Factory.Get();
-            ::});
+            ::services.AddHttpContextAccessor();
 
-            ::services.AddLogging(logging =>
-            ::{
-                ::logging.AddKissLog();
-            ::});
+            services.AddLogging(logging =>
+            {
+                ::logging.AddKissLog(options =>
+                ::{
+                    options.Formatter = (FormatterArgs args) =>
+                    {
+                        string message = args.DefaultValue;
+
+                        if (args.Exception == null)
+                            return message;
+
+                        string exceptionStr = new ExceptionFormatter().Format(args.Exception, args.Logger);
+
+                        StringBuilder sb = new StringBuilder();
+                        sb.AppendLine(message);
+                        sb.Append(exceptionStr);
+
+                        return sb.ToString();
+                    };
+                ::});
+            });
 
             services.AddSession();
 
@@ -101,10 +114,7 @@ namespace KissLog_AspNetCore_50
             });
 
             // Register local text files listener
-            options.Listeners.Add(new LocalTextFileListener(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs"))
-            {
-                FlushTrigger = FlushTrigger.OnMessage
-            });
+            options.Listeners.Add(new LocalTextFileListener("logs", FlushTrigger.OnMessage));
         }
     }
 }

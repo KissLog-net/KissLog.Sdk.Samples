@@ -1,10 +1,13 @@
 ﻿using KissLog;
+using KissLog.AspNetCore;
 using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
-using KissLog.Listeners;
+using KissLog.Formatters;
+using KissLog.Listeners.FileListener;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 
@@ -14,31 +17,59 @@ namespace KissLog_AspNetCore_ConsoleApp
     {
         static void Main(string[] args)
         {
+            Logger.SetFactory(new KissLog.LoggerFactory(new Logger(url: "ConsoleApp/Main")));
+
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .Build();
+
+            var serviceCollection = new ServiceCollection();
+            ConfigureServices(serviceCollection, configuration);
+            var serviceProvider = serviceCollection.BuildServiceProvider();
 
             string intro = CreateIntro(configuration);
             Console.WriteLine(intro);
 
             ConfigureKissLog(configuration);
 
-            ILogger logger = new Logger(url: "/Program/Main");
+            ILogger logger = serviceProvider.GetService<ILogger<Program>>();
 
-            try
+            logger.LogTrace("Trace log");
+            logger.LogDebug("Debug log");
+            logger.LogInformation("Information log");
+            logger.LogWarning("Warning log");
+            logger.LogError("Error log");
+            logger.LogCritical("Critical log");
+
+            var loggers = Logger.Factory.GetAll();
+            Logger.NotifyListeners(loggers);
+        }
+
+        private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddLogging(logging =>
             {
-                logger.Info("Hello world from KissLog!");
-                logger.Trace("Trace message");
-                logger.Debug("Debug message");
-                logger.Info("Info message");
-                logger.Warn("Warning message");
-                logger.Error("Error message");
-                logger.Critical("Critical message");
-            }
-            finally
-            {
-                Logger.NotifyListeners(logger);
-            }
+                logging
+                    .AddConfiguration(configuration.GetSection("Logging"))
+                    .AddKissLog(options =>
+                    {
+                        options.Formatter = (FormatterArgs args) =>
+                        {
+                            string message = args.DefaultValue;
+
+                            if (args.Exception == null)
+                                return message;
+
+                            string exceptionStr = new ExceptionFormatter().Format(args.Exception, args.Logger);
+
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine(message);
+                            sb.Append(exceptionStr);
+
+                            return sb.ToString();
+                        };
+                    });
+            });
         }
 
         private static void ConfigureKissLog(IConfiguration configuration)
@@ -81,10 +112,7 @@ namespace KissLog_AspNetCore_ConsoleApp
             });
 
             // Register local text files listener
-            KissLogConfiguration.Listeners.Add(new LocalTextFileListener(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs"))
-            {
-                FlushTrigger = FlushTrigger.OnMessage
-            });
+            KissLogConfiguration.Listeners.Add(new LocalTextFileListener("logs", FlushTrigger.OnMessage));
         }
 
         private static string CreateIntro(IConfiguration configuration)

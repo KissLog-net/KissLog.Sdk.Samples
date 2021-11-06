@@ -17,7 +17,7 @@ namespace KissLog_AspNet_MVC.ActionFilters
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            ILogger logger = Logger.Factory.Get();
+            IKLogger logger = Logger.Factory.Get();
 
             logger.Trace("TrackExecutionTimeAttribute begin");
 
@@ -30,7 +30,7 @@ namespace KissLog_AspNet_MVC.ActionFilters
 
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            ILogger logger = Logger.Factory.Get();
+            IKLogger logger = Logger.Factory.Get();
 
             _sw.Stop();
 
