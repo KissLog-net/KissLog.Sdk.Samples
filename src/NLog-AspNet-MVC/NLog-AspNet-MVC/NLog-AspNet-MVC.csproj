@@ -44,23 +44,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="KissLog, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KissLog.5.0.0\lib\net461\KissLog.dll</HintPath>
+    <Reference Include="KissLog, Version=5.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KissLog.5.1.2\lib\net462\KissLog.dll</HintPath>
     </Reference>
-    <Reference Include="KissLog.Adapters.NLog, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KissLog.Adapters.NLog.5.0.0\lib\net461\KissLog.Adapters.NLog.dll</HintPath>
+    <Reference Include="KissLog.Adapters.NLog, Version=5.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KissLog.Adapters.NLog.5.1.2\lib\net462\KissLog.Adapters.NLog.dll</HintPath>
     </Reference>
-    <Reference Include="KissLog.AspNet.Mvc, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KissLog.AspNet.Mvc.5.0.0\lib\net461\KissLog.AspNet.Mvc.dll</HintPath>
+    <Reference Include="KissLog.AspNet.Mvc, Version=5.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KissLog.AspNet.Mvc.5.1.2\lib\net462\KissLog.AspNet.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="KissLog.AspNet.Web, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KissLog.AspNet.Web.5.0.0\lib\net461\KissLog.AspNet.Web.dll</HintPath>
+    <Reference Include="KissLog.AspNet.Web, Version=5.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KissLog.AspNet.Web.5.1.2\lib\net462\KissLog.AspNet.Web.dll</HintPath>
     </Reference>
-    <Reference Include="KissLog.CloudListeners, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KissLog.CloudListeners.5.0.0\lib\net461\KissLog.CloudListeners.dll</HintPath>
+    <Reference Include="KissLog.CloudListeners, Version=5.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KissLog.CloudListeners.5.1.2\lib\net462\KissLog.CloudListeners.dll</HintPath>
     </Reference>
-    <Reference Include="KissLog.RestClient, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KissLog.RestClient.5.0.0\lib\net461\KissLog.RestClient.dll</HintPath>
+    <Reference Include="KissLog.RestClient, Version=5.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KissLog.RestClient.5.1.2\lib\net462\KissLog.RestClient.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
