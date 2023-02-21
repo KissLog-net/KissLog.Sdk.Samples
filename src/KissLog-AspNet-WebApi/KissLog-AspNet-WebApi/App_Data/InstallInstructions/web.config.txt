@@ -1,7 +1,0 @@
-﻿<configuration>
-  <appSettings>
-    ::<add key="KissLog.OrganizationId" value="{organizationId}" />
-    ::<add key="KissLog.ApplicationId" value="{applicationId}" />
-    ::<add key="KissLog.ApiUrl" value="{kissLogApiUrl}" />
-  </appSettings>
-</configuration>
