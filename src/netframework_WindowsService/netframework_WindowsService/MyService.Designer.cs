@@ -1,4 +1,4 @@
-﻿namespace dotnetframework_WindowsService
+﻿namespace netframework_WindowsService
 {
     partial class MyService
     {

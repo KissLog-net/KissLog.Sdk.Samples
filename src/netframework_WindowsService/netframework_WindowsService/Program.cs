@@ -5,7 +5,7 @@ using System.IO;
 using System.ServiceProcess;
 using System.Text;
 
-namespace dotnetframework_WindowsService
+namespace netframework_WindowsService
 {
     static class Program
     {

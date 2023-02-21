@@ -1,7 +1,7 @@
 ﻿using KissLog;
 using System;
 
-namespace dotnetframework_WindowsService.Services
+namespace netframework_WindowsService.Services
 {
     internal class FooService : IFooService
     {

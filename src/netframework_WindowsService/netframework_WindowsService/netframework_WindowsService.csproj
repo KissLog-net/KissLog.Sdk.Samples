@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E572DB42-E348-4E69-AF3C-FDDD3A708C1B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>dotnetframework_WindowsService</RootNamespace>
-    <AssemblyName>dotnetframework_WindowsService</AssemblyName>
+    <RootNamespace>netframework_WindowsService</RootNamespace>
+    <AssemblyName>netframework_WindowsService</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

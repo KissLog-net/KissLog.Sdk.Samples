@@ -1,4 +1,4 @@
-﻿using dotnetframework_WindowsService.Services;
+﻿using netframework_WindowsService.Services;
 using KissLog;
 using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
@@ -11,7 +11,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Timers;
 
-namespace dotnetframework_WindowsService
+namespace netframework_WindowsService
 {
     partial class MyService : ServiceBase
     {
