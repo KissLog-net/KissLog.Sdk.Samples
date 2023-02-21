@@ -5,7 +5,7 @@ using System.IO;
 using System.ServiceProcess;
 using System.Text;
 
-namespace KissLog_WindowsService
+namespace dotnetframework_WindowsService
 {
     static class Program
     {
@@ -14,8 +14,7 @@ namespace KissLog_WindowsService
         /// </summary>
         static void Main()
         {
-            string intro = CreateIntro();
-            Debug.WriteLine(intro);
+            Debug.WriteLine(CreateMessage());
 
             #if DEBUG
 
@@ -38,22 +37,18 @@ namespace KissLog_WindowsService
             service.Execute(null, null);
         }
 
-        private static string CreateIntro()
+        static string CreateMessage()
         {
             string applicationId = ConfigurationManager.AppSettings["KissLog.ApplicationId"];
-            string requestLogsUrl = $"https://kisslog.net/RequestLogs/{applicationId}/kisslog-windowsservice";
+            string logsUrl = $"https://kisslog.net/RequestLogs/{applicationId}/kisslogsampleapp";
+            string textLogs = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs");
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("WindowsService + KissLog ---> kisslog.net");
+            var sb = new StringBuilder();
+            sb.AppendLine("KissLog.net logs:");
+            sb.AppendLine(logsUrl);
             sb.AppendLine();
-            sb.AppendLine("This WindowsService is using KissLog to write the logs on:");
-            sb.AppendLine();
-            sb.AppendLine("* Local text files: ");
-            sb.AppendLine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs"));
-            sb.AppendLine();
-            sb.AppendLine("* kisslog.net:");
-            sb.AppendLine(requestLogsUrl);
-            sb.AppendLine();
+            sb.AppendLine("File logs:");
+            sb.AppendLine(textLogs);
 
             return sb.ToString();
         }

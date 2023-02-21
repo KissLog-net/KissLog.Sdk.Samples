@@ -1,4 +1,4 @@
-﻿namespace KissLog_WindowsService
+﻿namespace dotnetframework_WindowsService
 {
     partial class MyService
     {
