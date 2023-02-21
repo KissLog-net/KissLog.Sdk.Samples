@@ -1,15 +1,17 @@
-﻿using KissLog;
+﻿using dotnetframework_WindowsService.Services;
+using KissLog;
 using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
 using KissLog.Listeners.FileListener;
 using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.IO;
 using System.ServiceProcess;
 using System.Text;
 using System.Timers;
 
-namespace KissLog_WindowsService
+namespace dotnetframework_WindowsService
 {
     partial class MyService : ServiceBase
     {
@@ -29,7 +31,7 @@ namespace KissLog_WindowsService
         {
             Logger = new Logger();
 
-            Logger.Info("***** Starting service *****");
+            Logger.Info("Starting service");
 
             _timer.Elapsed += new ElapsedEventHandler(Execute);
             _timer.Interval = _triggerInterval;
@@ -49,14 +51,17 @@ namespace KissLog_WindowsService
             KissLog.Logger.SetFactory(new LoggerFactory(new Logger(url: "MyService/Execute")));
 
             IKLogger logger = KissLog.Logger.Factory.Get();
+            IFooService fooService = new FooService(logger);
 
-            logger.Info("Hello world from KissLog!");
-            logger.Trace("Trace message");
-            logger.Debug("Debug message");
-            logger.Info("Info message");
-            logger.Warn("Warning message");
-            logger.Error("Error message");
-            logger.Critical("Critical message");
+            logger.Trace("Trace log");
+            logger.Debug("Debug log");
+            logger.Info("Information log");
+            logger.Warn("Warning log");
+            logger.Error("Error log");
+            logger.Critical("Critical log");
+            logger.Error(new NullReferenceException());
+
+            fooService.Foo();
 
             var loggers = KissLog.Logger.Factory.GetAll();
             KissLog.Logger.NotifyListeners(loggers);
@@ -64,13 +69,23 @@ namespace KissLog_WindowsService
 
         private static void ConfigureKissLog()
         {
+            KissLogConfiguration.Listeners
+                .Add(new RequestLogsApiListener(new Application(ConfigurationManager.AppSettings["KissLog.OrganizationId"], ConfigurationManager.AppSettings["KissLog.ApplicationId"]))
+                {
+                    ApiUrl = ConfigurationManager.AppSettings["KissLog.ApiUrl"],
+                    UseAsync = false
+                });
+
+            KissLogConfiguration.Listeners
+                .Add(new LocalTextFileListener(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs")));
+
             // optional KissLog configuration
             KissLogConfiguration.Options
                 .AppendExceptionDetails((Exception ex) =>
                 {
                     StringBuilder sb = new StringBuilder();
 
-                    if (ex is System.NullReferenceException nullRefException)
+                    if (ex is NullReferenceException nullRefException)
                     {
                         sb.AppendLine("Important: check for null references");
                     }
@@ -83,27 +98,6 @@ namespace KissLog_WindowsService
             {
                 Debug.WriteLine(message);
             };
-
-            RegisterKissLogListeners();
         }
-
-        private static void RegisterKissLogListeners()
-        {
-            // multiple listeners can be registered using KissLogConfiguration.Listeners.Add() method
-
-            // register KissLog.net cloud listener
-            KissLogConfiguration.Listeners.Add(new RequestLogsApiListener(new Application(
-                ConfigurationManager.AppSettings["KissLog.OrganizationId"],
-                ConfigurationManager.AppSettings["KissLog.ApplicationId"])
-            )
-            {
-                ApiUrl = ConfigurationManager.AppSettings["KissLog.ApiUrl"],
-                UseAsync = false
-            });
-
-            // Register local text files listener
-            KissLogConfiguration.Listeners.Add(new LocalTextFileListener("logs", FlushTrigger.OnMessage));
-        }
-
     }
 }
