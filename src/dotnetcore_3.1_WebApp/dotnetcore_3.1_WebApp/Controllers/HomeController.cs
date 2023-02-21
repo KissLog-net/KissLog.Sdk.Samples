@@ -1,4 +1,5 @@
 ﻿using dotnetcore_3._1_WebApp.ActionFilters;
+using dotnetcore_3._1_WebApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -11,12 +12,15 @@ namespace dotnetcore_3._1_WebApp.Controllers
     [TrackExecutionTime]
     public class HomeController : Controller
     {
+        private readonly IFooService _fooService;
         private readonly IConfiguration _configuration;
         private readonly ILogger<HomeController> _logger;
         public HomeController(
+            IFooService fooService,
             IConfiguration configuration,
             ILogger<HomeController> logger)
         {
+            _fooService = fooService;
             _configuration = configuration;
             _logger = logger;
         }
@@ -30,6 +34,8 @@ namespace dotnetcore_3._1_WebApp.Controllers
             _logger.LogError("Error message");
             _logger.LogCritical("Critical message");
             _logger.LogError(new NullReferenceException(), "An exception");
+
+            _fooService.Foo();
 
             string applicationId = _configuration["KissLog.ApplicationId"];
             string logsUrl = $"https://kisslog.net/RequestLogs/{applicationId}/kisslogsampleapp";

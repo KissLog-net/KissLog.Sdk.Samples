@@ -1,3 +1,4 @@
+using dotnetcore_3._1_WebApp.Services;
 using KissLog.AspNetCore;
 using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
@@ -41,6 +42,8 @@ namespace dotnetcore_3._1_WebApp
                     };
                 });
             });
+
+            services.AddTransient<IFooService, FooService>();
 
             services.AddControllersWithViews();
         }
