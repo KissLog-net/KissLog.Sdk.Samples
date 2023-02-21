@@ -27,7 +27,7 @@ namespace dotnetcore_3._1_ConsoleApp
 
             ConfigureKissLog(configuration);
 
-            ILogger logger = host.Services.GetService<ILogger<Program>>();
+            ILogger logger = host.Services.GetRequiredService<ILogger<Program>>();
             logger.LogTrace("Trace message");
             logger.LogDebug("Debug message");
             logger.LogInformation("Info message");
